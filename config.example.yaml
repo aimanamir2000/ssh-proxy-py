@@ -1,0 +1,27 @@
+# Copy this file to config.yaml and fill in your values.
+# Any of these can also be overridden with CLI flags or environment
+# variables -- see README.md.
+
+# 1) The hostname you configured in Cloudflare Access / Zero Trust for
+#    SSH (Access > Applications, or a private-network CNAME served by
+#    a cloudflared connector on the SSH box, "Server B").
+cloudflared_hostname: ssh.example.com
+
+# Path to the cloudflared binary, if not on PATH.
+cloudflared_binary: cloudflared
+
+# 2) Local listen address/port for the SOCKS5 proxy.
+listen_host: 127.0.0.1
+listen_port: 1080
+
+# 3) SSH login credentials on Server B.
+ssh_username: myuser
+ssh_password: "mypassword"
+
+# Optional: verify the SSH host key against a known_hosts file instead
+# of trusting whatever key cloudflared hands back. Recommended for
+# anything beyond local testing.
+strict_host_key_checking: false
+known_hosts_path: ""
+
+log_level: INFO
